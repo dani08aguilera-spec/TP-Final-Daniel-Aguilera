@@ -19,6 +19,6 @@ from django.urls import path
 from metricas.views import vista_panel_sustentabilidad
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("panel/", vista_panel_sustentabilidad, name="panel_sustentabilidad"),
 ]
