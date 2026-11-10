@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+
+    <p>Total global de emisiones: <strong>{{ total_emisiones|floatformat:2 }} kg CO₂</strong></p>
+
+    {% if planta_mayor_consumo %}
+        <p>Planta de mayor consumo: <strong>{{ planta_mayor_consumo }}</strong>
+           ({{ consumo_mayor_kwh|floatformat:2 }} kWh)</p>
+    {% else %}
+        <p>No hay registros de consumo.</p>
+    {% endif %}
+
+    <h2>Consumo por planta</h2>
+    <ul>
+        {% for planta, consumo in consumo_por_planta.items %}
+            <li>{{ planta }}: {{ consumo|floatformat:2 }} kWh</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
